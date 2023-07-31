@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>marcaconsulta_web_dotnet_service</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\3) marcaconsulta-web-dotnet-domain\marcaconsulta-web-dotnet-domain.csproj" />
+    <ProjectReference Include="..\4) marcaconsulta-web-dotnet-infra\marcaconsulta-web-dotnet-infra.csproj" />
+  </ItemGroup>
+
+</Project>

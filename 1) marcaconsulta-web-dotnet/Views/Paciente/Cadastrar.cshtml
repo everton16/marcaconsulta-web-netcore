@@ -1,0 +1,44 @@
+@model marcaconsulta_web_netcore.Models.PacienteModel;
+
+@{
+    ViewData["Title"] = "Cadastrar Paciente";
+
+}
+
+<h1>@ViewData["Title"]</h1>
+
+
+<div>
+
+    <form asp-controller="Paciente" asp-action="Cadastrar" method="post">
+        <input type="hidden" asp-for="Id"/>
+
+        
+        <label>Nome:</label>
+        <input type="text" asp-for="Nome"/><br>
+        
+        <label>CPF:</label>
+        <input type="text" asp-for="Cpf"/><br>
+        
+        <label>Telefone:</label>
+        <input type="text" asp-for="Telefone"/><br>
+
+        <label>Endereço:</label>
+        <input type="text" asp-for="Endereco"/><br>
+        
+        <label>Bairro:</label>
+        <input type="text" asp-for="Bairro"/><br>
+        
+        <label>CidadeId:</label>
+        <input type="text" asp-for="CidadeId"/><br>
+        
+        <label>UfId:</label>
+        <input type="text" asp-for="UfId"/><br>
+
+
+        <br><br>
+        <button type="submit" class="btn btn-block btn-success">Registrar</button>
+    </form>
+
+
+</div>

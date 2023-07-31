@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/1) marcaconsulta-web-dotnet/marcaconsulta-web-dotnet.csproj",
+                "${workspaceFolder}/marcaconsulta-web-netcore/marcaconsulta-web-netcore.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/1) marcaconsulta-web-dotnet/marcaconsulta-web-dotnet.csproj",
+                "${workspaceFolder}/marcaconsulta-web-netcore/marcaconsulta-web-netcore.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -33,7 +33,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/1) marcaconsulta-web-dotnet/marcaconsulta-web-dotnet.csproj"
+                "${workspaceFolder}/marcaconsulta-web-netcore/marcaconsulta-web-netcore.csproj"
             ],
             "problemMatcher": "$msCompile"
         }

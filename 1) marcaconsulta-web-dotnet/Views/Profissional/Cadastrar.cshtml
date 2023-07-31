@@ -1,0 +1,63 @@
+@model marcaconsulta_web_netcore.Models.ProfissionalModel;
+
+
+@{
+    ViewData["Title"] = "Cadastrar Profissional";
+
+}
+
+<h1>@ViewData["Title"]</h1>
+
+
+<div>
+
+    <form asp-controller="Profissional" asp-action="Cadastrar" method="post">
+        <input type="hidden" asp-for="Id"/>
+
+        <div class="form-group">
+            <label>Nome:</label>
+            <input type="text" asp-for="Nome"/><br>
+        </div>
+
+        <div class="form-group">
+            <label>CPF:</label>
+            <input type="text" asp-for="Cpf"/><br>
+        </div>
+
+        <div class="form-group">
+            <label>Telefone:</label>
+            <input type="text" asp-for="Telefone"/><br>
+        </div>
+
+        <div class="form-group">
+            <label>Endereço:</label>
+            <input type="text" asp-for="Endereco"/><br>
+        </div>
+
+        <div class="form-group">
+            <label>Bairro:</label>
+            <input type="text" asp-for="Bairro"/><br>
+        </div>
+
+        <div class="form-group">
+            <label>CidadeId:</label>
+            <input type="text" asp-for="CidadeId"/><br>
+        </div>    
+
+        <div class="form-group">
+            <label>UfId:</label>
+            <input type="text" asp-for="UfId"/><br>
+        </div>
+
+        <div class="form-group">
+            <label>Especialidade:</label>            
+            @Html.DropDownListFor(m => m.EspecialidadeId, Model.ListaEspecialidades, new { @class="form-select"})
+
+        </div>
+
+        <br><br>
+        <button type="submit" class="btn btn-block btn-success">Registrar</button>
+    </form>
+
+
+</div>

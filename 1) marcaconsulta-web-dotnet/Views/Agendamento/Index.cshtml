@@ -1,0 +1,68 @@
+@{
+    ViewData["Title"] = "Marcar Consulta";
+
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<button type="button" class="btn btn-block btn-primary" onclick="Novo()">Novo</button>
+<br>
+<br>
+
+<style>
+    
+th {
+    text-align: center;
+    background-color: #EEEE00;
+}
+
+    
+
+</style>
+
+<table class="table table-bordered">
+
+    <tr>
+        <th>Paciente</th>
+        <th>ProfissionalAgenda</th>
+        <th>#</th>
+        <th>#</th>
+    </tr>
+
+
+    @{foreach (var item in (List<AgendamentoModel>)ViewBag.listaAgendamento)
+        {
+            <tr>
+                <td>@item.PacienteId</td>
+                <td>@item.ProfissionalAgendaId</td>
+                
+                <td align="center"><button type="button" class="btn btn-block btn-outline-warning" onclick = "Atualizar(@item.Id.ToString())">Editar</button></td>
+                <td align="center"><button type="button" class="btn btn-block btn-outline-danger" onclick = "Excluir(@item.Id.ToString())">Excluir</button></td>
+            </tr>
+        }
+    }
+
+</table>
+
+
+<script>
+
+    function Novo(){
+
+        window.location.href = "../Agendamento/Cadastrar";
+
+    }
+
+    function Atualizar(id){
+
+        window.location.href = "../Agendamento/Cadastrar/" + id;
+        
+    }
+
+    function Excluir(id){
+
+        window.location.href = "../Agendamento/Excluir/" + id;
+        
+    }
+
+</script>
