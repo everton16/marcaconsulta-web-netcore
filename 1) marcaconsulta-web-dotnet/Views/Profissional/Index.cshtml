@@ -26,10 +26,10 @@ th {
         <th>Nome</th>
         <th>CPF</th>
         <th>Telefone</th>
-        <th>Endereco</th>
+        <th>Endereço</th>
         <th>Bairro</th>
         <th>Cidade</th>
-        <th>UF</th>
+        <th>Estado</th>
         <th>Especialidade</th>
         <th>#</th>
         <th>#</th>
@@ -44,8 +44,8 @@ th {
                 <td>@item.Telefone</td>
                 <td>@item.Endereco</td>
                 <td>@item.Bairro</td>
-                <td>@item.CidadeId</td>
-                <td>@item.UfId</td>
+                <td>@item.CidadeNome</td>
+                <td>@item.EstadoNome</td>
                 <td>@item.EspecialidadeId</td>
                 <td align="center"><button type="button" class="btn btn-block btn-outline-warning" onclick = "Atualizar(@item.Id.ToString())">Editar</button></td>
                 <td align="center"><button type="button" class="btn btn-block btn-outline-danger" onclick = "Excluir(@item.Id.ToString())">Excluir</button></td>

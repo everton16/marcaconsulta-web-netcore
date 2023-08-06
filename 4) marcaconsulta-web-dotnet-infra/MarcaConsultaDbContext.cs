@@ -13,8 +13,8 @@ public class MarcaConsultaDbContext : DbContext
     public DbSet<ProfissionalAgenda> ProfissionalAgenda {get;set;}
     public DbSet<Especialidade> Especialidade {get;set;}
     
-    //public DbSet<Cidade> Cidade {get;set;}
-    //public DbSet<Uf> Uf {get;set;}
+    public DbSet<Cidade> Cidade {get;set;}
+    public DbSet<Estado> Estado {get;set;}
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

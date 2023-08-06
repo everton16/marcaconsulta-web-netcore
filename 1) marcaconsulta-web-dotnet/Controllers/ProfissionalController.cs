@@ -30,7 +30,6 @@ namespace marcaconsulta_web_netcore.Controllers
             _especialidadeService = especialidadeService;
         }
 
-        //Listagem registros
         [HttpGet]
         [Route("Index")]
         public IActionResult Index()
@@ -45,11 +44,12 @@ namespace marcaconsulta_web_netcore.Controllers
                     Id = item.Id,
                     Cpf = item.Cpf,
                     Nome = item.Nome,
+                    Telefone = item.Telefone,
                     Endereco = item.Endereco,
                     Bairro = item.Bairro,
-                    Telefone = item.Telefone,
                     CidadeId = item.CidadeId,
-                    UfId = item.UfId,
+                    CidadeNome = item.Cidade.Nome,
+                    EstadoNome = item.Cidade.Estado.Nome,
                     EspecialidadeId = item.EspecialidadeId
 
                 };
@@ -63,35 +63,25 @@ namespace marcaconsulta_web_netcore.Controllers
 
             return View();
         }
-
-        //Abre tela de cadastro
-        [HttpGet]
-        [Route("Profissional/Cadastrar")]
-        public IActionResult Cadastrar()
-        {
-            return View();
-        }
-        
+ 
         //Editar registro específico
         [HttpGet]
         [Route("Cadastrar")]
         [Route("Cadastrar/{Id}")]
         public IActionResult Cadastrar(int? Id)
         {
-            
-            var ListaEspecialidades = new SelectList(_especialidadeService.ListarRegistros(), "id", "TextoEspecialidade");
-            
-            var itemProfissional = new ProfissionalModel ()
-            {
-                ListaEspecialidades = ListaEspecialidades    
 
-            };
+            var ListaEspecialidades = new SelectList(_especialidadeService.ListarRegistros(),"Id", "TextoEspecialidade");
             
+            var itemProfissional = new ProfissionalModel()
+                {
+                  ListaEspecialidades = ListaEspecialidades
+                };
+
             if(Id != null)
             
             {
                 var profissional = _profissionalService.RetornarRegistro((int)Id);
-
                 
                     itemProfissional.Id = profissional.Id;
                     itemProfissional.Nome = profissional.Nome;
@@ -100,14 +90,14 @@ namespace marcaconsulta_web_netcore.Controllers
                     itemProfissional.Endereco = profissional.Endereco;
                     itemProfissional.Bairro = profissional.Bairro;
                     itemProfissional.CidadeId = profissional.CidadeId;
-                    itemProfissional.UfId = profissional.UfId;
+                    //itemProfissional.UfId = profissional.UfId;
                     itemProfissional.EspecialidadeId = profissional.EspecialidadeId;
 
-                }
+                };
                     return View(itemProfissional);
         }
 
-        //Cadastra ou atualiza registro
+        //Cadastra
         [HttpPost]
         [Route("Cadastrar")]
         [Route("Cadastrar/{Id}")]
@@ -123,13 +113,12 @@ namespace marcaconsulta_web_netcore.Controllers
                 Telefone = model.Telefone,
                 Bairro = model.Bairro,
                 CidadeId = model.CidadeId,
-                UfId = model.UfId,
+                //UfId = model.UfId,
                 EspecialidadeId = model.EspecialidadeId
 
             };
 
             _profissionalService.Cadastrar(profissional);
-            //return View();
             return RedirectToAction("Index");
         }
 

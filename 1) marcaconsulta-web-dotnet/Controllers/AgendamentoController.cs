@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using marcaconsulta_web_dotnet_domain.Entities;
 using marcaconsulta_web_dotnet_service.Interfaces;
 using marcaconsulta_web_netcore.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
 
 namespace marcaconsulta_web_netcore.Controllers
@@ -15,16 +17,20 @@ namespace marcaconsulta_web_netcore.Controllers
     {
         private readonly ILogger<AgendamentoController> _logger;
         private readonly IAgendamentoService _agendamentoService;
+        private readonly IProfissionalAgendaService _profissionalAgendaService;
         public AgendamentoController(
             ILogger<AgendamentoController> logger,
-            IAgendamentoService agendamentoService
+            IAgendamentoService agendamentoService,
+            IProfissionalAgendaService profissionalAgendaService
             
             )
         {
             _logger = logger;
             _agendamentoService = agendamentoService;
+            _profissionalAgendaService = profissionalAgendaService;
         }
 
+        //Listagem Agendamentos
         [HttpGet]
         [Route("Index")]
         public IActionResult Index()
@@ -38,8 +44,11 @@ namespace marcaconsulta_web_netcore.Controllers
 
                     Id = item.Id,
                     PacienteId = item.PacienteId,
-                    ProfissionalAgendaId = item.ProfissionalAgendaId
-                    
+                    ProfissionalAgendaId = item.ProfissionalAgendaId,
+                    ProfissionalNome = item.ProfissionalAgenda.Profissional.Nome,
+                    ProfissionalAgendaData = item.ProfissionalAgenda.Data,
+                    ProfissionalAgendaHoraInicio = item.ProfissionalAgenda.HoraInicio,
+                    ProfissionalAgendaHoraFim = item.ProfissionalAgenda.HoraFim
                 };
 
                 listaAgendamentoModel.Add(itemAgendamento);
@@ -50,6 +59,62 @@ namespace marcaconsulta_web_netcore.Controllers
             ViewBag.listaAgendamento = listaAgendamentoModel;
             
             return View();
+        }
+
+        //Editar registro específico
+        [HttpGet]
+        [Route("Cadastrar")]
+        [Route("Cadastrar/{Id}")]
+        public IActionResult Cadastrar(int? Id)
+        {
+
+            var ListaProfissionalAgendas = new SelectList(_profissionalAgendaService.ListarRegistros(),"Id", "Data");
+            
+            var itemAgendamento = new AgendamentoModel()
+                {
+                  ListaProfissionalAgendas = ListaProfissionalAgendas
+                };
+
+            if(Id != null)
+            
+            {
+                var agendamento = _agendamentoService.RetornarRegistro((int)Id);
+                
+                    itemAgendamento.Id = agendamento.Id;
+                    itemAgendamento.PacienteId = agendamento.PacienteId;
+                    itemAgendamento.ProfissionalAgendaId = agendamento.ProfissionalAgendaId;
+
+                };
+                    return View(itemAgendamento);
+        }
+
+        //Cadastra
+        [HttpPost]
+        [Route("Cadastrar")]
+        [Route("Cadastrar/{Id}")]
+        public IActionResult Cadastrar(AgendamentoModel model)
+        {
+            
+            var agendamento = new Agendamento()
+            {
+                Id = model.Id,
+                PacienteId = model.PacienteId,
+                ProfissionalAgendaId = model.ProfissionalAgendaId,
+            };
+
+            _agendamentoService.Cadastrar(agendamento);
+            return RedirectToAction("Index");
+        }
+
+        //Exclui registro
+        [HttpGet]
+        [Route("Excluir/{Id}")]
+        public IActionResult Excluir(int? Id)
+        {
+            
+            _agendamentoService.Excluir((int)Id);
+
+            return RedirectToAction("Index");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

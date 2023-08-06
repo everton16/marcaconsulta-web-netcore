@@ -10,6 +10,8 @@ public class Paciente
     public string? Endereco {get;set;}
     public string? Bairro {get;set;}
     public int? CidadeId {get;set;}
-    public int? UfId {get;set;}
+    
+    public Cidade? Cidade {get;set;}
 
+    public Agendamento? Agendamento {get;set;}
 }

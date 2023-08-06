@@ -1,63 +1,77 @@
 @model marcaconsulta_web_netcore.Models.ProfissionalModel;
 
-
 @{
     ViewData["Title"] = "Cadastrar Profissional";
 
 }
 
-<h1>@ViewData["Title"]</h1>
+
+<style>
 
 
-<div>
 
-    <form asp-controller="Profissional" asp-action="Cadastrar" method="post">
-        <input type="hidden" asp-for="Id"/>
+</style>
+<html>
+    <h1>@ViewData["Title"]</h1>
+    
+    <br><br>
+    
+    <div>
 
-        <div class="form-group">
-            <label>Nome:</label>
-            <input type="text" asp-for="Nome"/><br>
-        </div>
+        <form asp-controller="Profissional" asp-action="Cadastrar" method="post">
+            <input type="hidden" asp-for="Id"/>
 
-        <div class="form-group">
-            <label>CPF:</label>
-            <input type="text" asp-for="Cpf"/><br>
-        </div>
+                <table>
+                    <tr>
+                        <td style="text-align: right;"><label>Nome:</label></td>
+                        <td><input type="text" asp-for="Nome"/></td>
+                    </tr>
 
-        <div class="form-group">
-            <label>Telefone:</label>
-            <input type="text" asp-for="Telefone"/><br>
-        </div>
+                    <tr>
+                        <td style="text-align: right;"><label>CPF:</label></td>
+                        <td><input type="text" asp-for="Cpf"/></td>
+                    </tr>
 
-        <div class="form-group">
-            <label>Endereço:</label>
-            <input type="text" asp-for="Endereco"/><br>
-        </div>
+                    <tr>
+                        <td style="text-align: right;"><label>Telefone:</label></td>
+                        <td><input type="text" asp-for="Telefone"/></td>
+                    </tr>
 
-        <div class="form-group">
-            <label>Bairro:</label>
-            <input type="text" asp-for="Bairro"/><br>
-        </div>
+                    <tr>
+                        <td style="text-align: right;"><label>Endereço:</label></td>
+                        <td><input type="text" asp-for="Endereco"/></td>
+                    </tr>
 
-        <div class="form-group">
-            <label>CidadeId:</label>
-            <input type="text" asp-for="CidadeId"/><br>
-        </div>    
+                    <tr>
+                        <td style="text-align: right;"><label>Bairro:</label></td>
+                        <td><input type="text" asp-for="Bairro"/></td>
+                    </tr>
 
-        <div class="form-group">
-            <label>UfId:</label>
-            <input type="text" asp-for="UfId"/><br>
-        </div>
+                    <tr>
+                        <td style="text-align: right;"><label>Cidade:</label></td>
+                        <td><input type="text" asp-for="CidadeId"/></td>
+                    </tr>
+                    
+                    <tr>
+                        <td style="text-align: right;"><label>Especialidade:</label><br></td>
+                        <td>@Html.DropDownListFor(m => m.EspecialidadeId, Model.ListaEspecialidades, new { @class="form-select"})</td>
+                    </tr>
 
-        <div class="form-group">
-            <label>Especialidade:</label>            
-            @Html.DropDownListFor(m => m.EspecialidadeId, Model.ListaEspecialidades, new { @class="form-select"})
+                </table>
+                
+                    <br><br><br>
+                    <button type="submit" class="btn btn-block btn-success">Registrar</button>
+                    <button type="button" class="btn btn-block btn-primary" onclick="Voltar()">Voltar</button>
+        </form>
+    </div>
+    
+</html>
 
-        </div>
+<script>
 
-        <br><br>
-        <button type="submit" class="btn btn-block btn-success">Registrar</button>
-    </form>
+    function Voltar(){
 
+        window.location.href = "../Profissional/Index";
 
-</div>
+    }
+</script>

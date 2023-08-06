@@ -43,8 +43,8 @@ namespace marcaconsulta_web_netcore.Controllers
                     Telefone = item.Telefone,
                     Endereco = item.Endereco,
                     Bairro = item.Bairro,
-                    CidadeId = item.CidadeId,
-                    UfId = item.UfId,
+                    CidadeNome = item.Cidade.Nome,
+                    EstadoNome = item.Cidade.Estado.Nome,
 
                 };
 
@@ -58,16 +58,6 @@ namespace marcaconsulta_web_netcore.Controllers
             return View();
         }
 
- 
-        
-        //Abre tela de cadastro
-        [HttpGet]
-        [Route("Cadastrar")]
-        public IActionResult Cadastrar()
-        {
-            return View();
-        }
-        
         //Editar registro específico
         [HttpGet]
         [Route("Cadastrar")]
@@ -89,7 +79,6 @@ namespace marcaconsulta_web_netcore.Controllers
                     Endereco = paciente.Endereco,
                     Bairro = paciente.Bairro,
                     CidadeId = paciente.CidadeId,
-                    UfId = paciente.UfId,
 
                 };
                     return View(pacienteModel);
@@ -117,7 +106,6 @@ namespace marcaconsulta_web_netcore.Controllers
                 Telefone = model.Telefone,
                 Bairro = model.Bairro,
                 CidadeId = model.CidadeId,
-                UfId = model.UfId,
 
             };
 

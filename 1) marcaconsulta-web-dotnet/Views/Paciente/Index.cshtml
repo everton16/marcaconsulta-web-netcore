@@ -16,8 +16,6 @@ th {
     background-color: #EEEE00;
 }
 
-    
-
 </style>
 
 <table class="table table-bordered">
@@ -29,7 +27,7 @@ th {
         <th>Endereco</th>
         <th>Bairro</th>
         <th>Cidade</th>
-        <th>UF</th>
+        <th>Estado</th>
         <th>#</th>
         <th>#</th>
     </tr>
@@ -43,8 +41,8 @@ th {
                 <td>@item.Telefone</td>
                 <td>@item.Endereco</td>
                 <td>@item.Bairro</td>
-                <td>@item.CidadeId</td>
-                <td>@item.UfId</td>
+                <td>@item.CidadeNome</td>
+                <td>@item.EstadoNome</td>
                 <td align="center"><button type="button" class="btn btn-block btn-outline-warning" onclick = "Atualizar(@item.Id.ToString())">Editar</button></td>
                 <td align="center"><button type="button" class="btn btn-block btn-outline-danger" onclick = "Excluir(@item.Id.ToString())">Excluir</button></td>
             </tr>

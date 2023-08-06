@@ -7,5 +7,9 @@ public class ProfissionalAgenda
     public DateTime Data {get;set;}
     public string? HoraInicio {get;set;}
     public string? HoraFim {get;set;}
-    
+
+    public Profissional? Profissional {get;set;}
+
+    public Agendamento? Agendamento {get;set;}
+
 }

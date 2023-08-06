@@ -39,7 +39,7 @@ namespace marcaconsulta_web_dotnet_service
 
         List<ProfissionalAgenda> IProfissionalAgendaService.ListarRegistros()
         {
-            var dbSet = _dbContext.ProfissionalAgenda;
+            var dbSet = _dbContext.ProfissionalAgenda.Include(x => x.Profissional).ThenInclude(y=>y.Cidade);
             return dbSet.ToList();
         }
 

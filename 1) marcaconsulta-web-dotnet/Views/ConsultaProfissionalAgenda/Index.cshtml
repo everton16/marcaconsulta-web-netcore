@@ -1,11 +1,11 @@
 @{
-    ViewData["Title"] = "Agenda Profissional";
+    ViewData["Title"] = "Consulta Agenda Profissional";
 
 }
 
 <h1>@ViewData["Title"]</h1>
 
-<button type="button" class="btn btn-block btn-primary" onclick="Novo()">Novo</button>
+
 <br>
 <br>
 
@@ -24,24 +24,25 @@ th {
 
     <tr>
         <th>Profissional</th>
+        <th>Endereço</th>
+        <th>Bairro</th>
+        <th>Cidade</th>
         <th>Data</th>
         <th>Horário início</th>
         <th>Horário Término</th>
-        <th>#</th>
-        <th>#</th>
     </tr>
 
 
     @{foreach (var item in (List<ProfissionalAgendaModel>)ViewBag.listaProfissionalAgenda)
         {
-            <tr>
+            <tr style="text-align:center" >
                 <td>@item.ProfissionalNome</td>
+                <td>@item.ProfissionalEndereco</td>
+                <td>@item.ProfissionalBairro</td>
+                <td>@item.ProfissionalCidade</td>
                 <td>@item.Data</td>
                 <td>@item.HoraInicio</td>
                 <td>@item.HoraFim</td>
-                
-                <td align="center"><button type="button" class="btn btn-block btn-outline-warning" onclick = "Atualizar(@item.Id.ToString())">Editar</button></td>
-                <td align="center"><button type="button" class="btn btn-block btn-outline-danger" onclick = "Excluir(@item.Id.ToString())">Excluir</button></td>
             </tr>
         }
     }

@@ -7,4 +7,9 @@ public class Agendamento
     public int? PacienteId {get;set;}
     public int? ProfissionalAgendaId {get;set;}
     
+    
+    public Paciente? Paciente {get;set;}
+
+    public ProfissionalAgenda? ProfissionalAgenda {get;set;}
+    
 }

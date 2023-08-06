@@ -10,6 +10,7 @@ public class Profissional
     public string? Endereco {get;set;}
     public string? Bairro {get;set;}
     public int? CidadeId {get;set;}
-    public int? UfId {get;set;}
     public int? EspecialidadeId {get;set;}
+
+    public Cidade? Cidade {get;set;}
 }

@@ -39,7 +39,7 @@ namespace marcaconsulta_web_dotnet_service
 
         List<Paciente> IPacienteService.ListarRegistros()
         {
-            var dbSet = _dbContext.Paciente;
+            var dbSet = _dbContext.Paciente.Include(x=>x.Cidade).ThenInclude(y=>y.Estado);
             return dbSet.ToList();
         }
 

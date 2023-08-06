@@ -14,9 +14,8 @@ builder.Services.AddScoped<IPacienteService, PacienteService>();
 builder.Services.AddScoped<IProfissionalAgendaService, ProfissionalAgendaService>();
 builder.Services.AddScoped<IAgendamentoService, AgendamentoService>();
 builder.Services.AddScoped<IEspecialidadeService, EspecialidadeService>();
-
-//builder.Services.AddScoped<ICidadeService, CidadeService>();
-//builder.Services.AddScoped<IUfService, UfService>();
+builder.Services.AddScoped<ICidadeService, CidadeService>();
+builder.Services.AddScoped<IEstadoService, EstadoService>();
 
 var app = builder.Build();
 
