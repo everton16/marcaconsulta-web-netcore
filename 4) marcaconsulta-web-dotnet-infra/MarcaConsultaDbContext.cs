@@ -7,14 +7,14 @@ namespace marcaconsulta_web_dotnet_infra;
 public class MarcaConsultaDbContext : DbContext
 
 {
-    public DbSet<Profissional> Profissional {get;set;}
-    public DbSet<Paciente> Paciente {get;set;}
-    public DbSet<Agendamento> Agendamento {get;set;}
-    public DbSet<ProfissionalAgenda> ProfissionalAgenda {get;set;}
-    public DbSet<Especialidade> Especialidade {get;set;}
+    public DbSet<Profissional>? Profissional {get;set;}
+    public DbSet<Paciente>? Paciente {get;set;}
+    public DbSet<Agendamento>? Agendamento {get;set;}
+    public DbSet<ProfissionalAgenda>? ProfissionalAgenda {get;set;}
+    public DbSet<Especialidade>? Especialidade {get;set;}
     
-    public DbSet<Cidade> Cidade {get;set;}
-    public DbSet<Estado> Estado {get;set;}
+    public DbSet<Cidade>? Cidade {get;set;}
+    public DbSet<Estado>? Estado {get;set;}
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

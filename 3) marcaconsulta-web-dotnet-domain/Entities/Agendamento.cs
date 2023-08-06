@@ -3,7 +3,7 @@
 public class Agendamento
 {
 
-    public int? Id {get;set;}
+    public int Id {get;set;}
     public int? PacienteId {get;set;}
     public int? ProfissionalAgendaId {get;set;}
     
