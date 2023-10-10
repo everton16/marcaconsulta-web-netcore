@@ -13,4 +13,5 @@ public class Profissional
     public int? EspecialidadeId {get;set;}
 
     public Cidade? Cidade {get;set;}
+    public Estado? Estado {get;set;}
 }

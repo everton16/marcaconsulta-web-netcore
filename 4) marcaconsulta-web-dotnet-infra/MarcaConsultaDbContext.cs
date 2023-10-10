@@ -18,7 +18,8 @@ public class MarcaConsultaDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS;Database=marcaconsulta;Encrypt=False;TrustServerCertificate=False;Trusted_Connection=True;");
+        //optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS;Database=marcaconsulta;Encrypt=False;TrustServerCertificate=False;Trusted_Connection=True;");
+        optionsBuilder.UseSqlServer(@"Server=marcaconsultaserver.database.windows.net;Database=marcaconsulta;User Id=mcwadmin;Password=Mcwadm16;");
 
     }
 

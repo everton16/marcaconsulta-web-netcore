@@ -5,6 +5,7 @@
 
 }
 
+
 <html>
     <h1>@ViewData["Title"]</h1>
 
@@ -28,7 +29,7 @@
                 
                 <tr>
                     <td style="text-align: right;"><label>Telefone:</label></td>
-                    <td><input type="text" asp-for="Telefone"/></td>
+                    <td><input type="text" name="telefone" id="telefone" asp-for="Telefone" placeholder="(__) _____-____"  maxlength="15"/></td>
                 </tr>
                 
                 <tr>
@@ -58,11 +59,39 @@
 
 </html>
 
-<script>
+<script type="text/javascript" language="javascript">
 
     function Voltar(){
 
         window.location.href = "../Paciente/Index";
 
     }
+
+    function mascara(o,f){
+        v_obj=o
+        v_fun=f
+        setTimeout("execmascara()",1)
+    }
+
+    function execmascara(){
+        v_obj.value=v_fun(v_obj.value)
+    }
+
+    function mtel(v){
+        v=v.replace(/\D/g,""); //Remove tudo o que não é dígito
+        v=v.replace(/^(\d{2})(\d)/g,"($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
+        v=v.replace(/(\d)(\d{4})$/,"$1-$2"); //Coloca hífen entre o quarto e o quinto dígitos
+        return v;
+    }
+
+    function id( el ){
+        return document.getElementById( el );
+    }
+
+    window.onload = function(){
+        id('telefone').onkeyup = function(){
+            mascara( this, mtel );
+        }
+}
+
 </script>
