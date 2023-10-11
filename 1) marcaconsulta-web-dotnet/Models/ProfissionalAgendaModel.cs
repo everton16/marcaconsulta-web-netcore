@@ -20,6 +20,8 @@ namespace marcaconsulta_web_netcore.Models
         
         public Profissional? Profissional{get;set;}
         public ProfissionalAgenda? ProfissionalAgenda {get;set;}
+
+        public Cidade? Cidade {get;set;}
             
     }
 }

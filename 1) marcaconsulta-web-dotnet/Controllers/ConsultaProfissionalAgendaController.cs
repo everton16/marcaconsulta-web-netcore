@@ -26,7 +26,6 @@ namespace marcaconsulta_web_netcore.Controllers
             _profissionalAgendaService = profissionalAgendaService;
         }
 
-
         [HttpGet]
         [Route("Index")]
         public IActionResult Index()
@@ -40,9 +39,6 @@ namespace marcaconsulta_web_netcore.Controllers
 
                     Id = item.Id,
                     ProfissionalNome = item.Profissional.Nome,
-                    ProfissionalEndereco = item.Profissional.Endereco,
-                    ProfissionalBairro = item.Profissional.Bairro,
-                    ProfissionalCidade = item.Profissional.Cidade.Nome,
                     Data = item.Data,
                     HoraInicio = item.HoraInicio,
                     HoraFim = item.HoraFim
@@ -52,15 +48,34 @@ namespace marcaconsulta_web_netcore.Controllers
                 
             }
 
+
             ViewBag.listaProfissionalAgenda = listaProfissionalAgendaModel;
             
             return View();
         }
-           
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+
+
+
+        
+        //Cadastra ou atualiza registro
+        [HttpPost]
+        [Route("Cadastrar")]
+        [Route("Cadastrar/{Id}")]
+        public IActionResult Cadastrar(ProfissionalAgendaModel model)
         {
-            return View("Error!");
+            
+            var profissionalAgenda = new ProfissionalAgenda()
+            {
+                Id = model.Id,
+                ProfissionalId = model.ProfissionalId,
+                Data = model.Data,
+                HoraInicio = model.HoraInicio,
+                HoraFim = model.HoraFim
+            };
+
+            _profissionalAgendaService.Cadastrar(profissionalAgenda);
+            return RedirectToAction("Index");
         }
+
     }
 }

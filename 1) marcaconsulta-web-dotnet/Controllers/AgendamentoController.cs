@@ -45,10 +45,10 @@ namespace marcaconsulta_web_netcore.Controllers
                     Id = item.Id,
                     PacienteId = item.PacienteId,
                     ProfissionalAgendaId = item.ProfissionalAgendaId,
-                    ProfissionalNome = item.ProfissionalAgenda.Profissional.Nome,
-                    ProfissionalAgendaData = item.ProfissionalAgenda.Data,
-                    ProfissionalAgendaHoraInicio = item.ProfissionalAgenda.HoraInicio,
-                    ProfissionalAgendaHoraFim = item.ProfissionalAgenda.HoraFim
+                    //ProfissionalNome = item.ProfissionalAgenda.Profissional.Nome,
+                    //ProfissionalAgendaData = item.ProfissionalAgenda.Data,
+                    //ProfissionalAgendaHoraInicio = item.ProfissionalAgenda.HoraInicio,
+                    //ProfissionalAgendaHoraFim = item.ProfissionalAgenda.HoraFim
                 };
 
                 listaAgendamentoModel.Add(itemAgendamento);
