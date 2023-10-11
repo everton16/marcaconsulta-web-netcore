@@ -12,15 +12,16 @@ namespace marcaconsulta_web_netcore.Models
         public string? PacienteNome {get;set;}
         public string? ProfissionalNome {get;set;}
 
-        //public DateTime ProfissionalAgendaData{get;set;}
-        //public string? ProfissionalAgendaHoraInicio {get;set;}
-        //public string? ProfissionalAgendaHoraFim{get;set;}
+        public DateTime ProfissionalAgendaData{get;set;}
+        public string? ProfissionalAgendaHoraInicio {get;set;}
+        public string? ProfissionalAgendaHoraFim{get;set;}
         
-        
-        public ProfissionalAgenda? ProfissionalAgenda {get;set;}
         public Agendamento? Agendamento{get;set;}
+
+        public ProfissionalAgenda? ProfissionalAgenda {get;set;}
+        
         public Profissional? Profissional{get;set;}
-        public Paciente? Paciente{get;set;}
+        //public Paciente? Paciente{get;set;}
         public IEnumerable<SelectListItem>? ListaProfissionalAgendas {get;set;}        
         
     }

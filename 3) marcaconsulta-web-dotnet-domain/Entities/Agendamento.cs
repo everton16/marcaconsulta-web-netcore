@@ -10,6 +10,8 @@ public class Agendamento
     
     public Paciente? Paciente {get;set;}
 
+    //public Profissional? Profissional {get;set;}
+
     public ProfissionalAgenda? ProfissionalAgenda {get;set;}
     
 }

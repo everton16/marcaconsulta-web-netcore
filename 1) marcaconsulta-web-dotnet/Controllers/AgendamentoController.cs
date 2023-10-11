@@ -18,16 +18,19 @@ namespace marcaconsulta_web_netcore.Controllers
         private readonly ILogger<AgendamentoController> _logger;
         private readonly IAgendamentoService _agendamentoService;
         private readonly IProfissionalAgendaService _profissionalAgendaService;
+        private readonly IProfissionalService _profissionalService;
         public AgendamentoController(
             ILogger<AgendamentoController> logger,
             IAgendamentoService agendamentoService,
-            IProfissionalAgendaService profissionalAgendaService
+            IProfissionalAgendaService profissionalAgendaService,
+            IProfissionalService profissionalService
             
             )
         {
             _logger = logger;
             _agendamentoService = agendamentoService;
             _profissionalAgendaService = profissionalAgendaService;
+            _profissionalService = profissionalService;
         }
 
         //Listagem Agendamentos
@@ -44,11 +47,8 @@ namespace marcaconsulta_web_netcore.Controllers
 
                     Id = item.Id,
                     PacienteId = item.PacienteId,
-                    ProfissionalAgendaId = item.ProfissionalAgendaId,
-                    //ProfissionalNome = item.ProfissionalAgenda.Profissional.Nome,
-                    //ProfissionalAgendaData = item.ProfissionalAgenda.Data,
-                    //ProfissionalAgendaHoraInicio = item.ProfissionalAgenda.HoraInicio,
-                    //ProfissionalAgendaHoraFim = item.ProfissionalAgenda.HoraFim
+                    ProfissionalAgendaId = item.ProfissionalAgendaId
+                    
                 };
 
                 listaAgendamentoModel.Add(itemAgendamento);
