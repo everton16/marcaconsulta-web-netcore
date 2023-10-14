@@ -16,13 +16,11 @@ namespace marcaconsulta_web_netcore.Models
         //public int? UfId {get;set;}
         public int? EspecialidadeId {get;set;}
 
-        public string? CidadeNome {get;set;}
-        public string? EstadoNome{get;set;}
-
-        public Agendamento? Agendamento{get;set;}
+        public string? ProfissionalCidadeNome {get;set;}
+        public string? ProfissionalEstadoNome {get;set;}
 
         public Profissional? Profissional {get;set;}
-        //public Especialidade? Especialidade {get;set;}
+        
         public IEnumerable<SelectListItem>? ListaEspecialidades {get;set;}
     }
 }

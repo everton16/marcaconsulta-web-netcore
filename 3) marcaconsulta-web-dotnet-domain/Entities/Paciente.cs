@@ -13,5 +13,5 @@ public class Paciente
     
     public Cidade? Cidade {get;set;}
 
-    public Agendamento? Agendamento {get;set;}
+    //public Agendamento? Agendamento {get;set;}
 }

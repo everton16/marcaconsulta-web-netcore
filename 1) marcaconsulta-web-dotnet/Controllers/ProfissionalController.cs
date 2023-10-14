@@ -48,8 +48,8 @@ namespace marcaconsulta_web_netcore.Controllers
                     Endereco = item.Endereco,
                     Bairro = item.Bairro,
                     CidadeId = item.CidadeId,
-                    //CidadeNome = item.Cidade.Nome,
-                    //EstadoNome = item.Cidade.Estado.Nome,
+                    //ProfissionalCidadeNome = item.Cidade.Nome,
+                    //ProfissionalEstadoNome = item.Cidade.Estado.Nome,
                     EspecialidadeId = item.EspecialidadeId
 
                 };
