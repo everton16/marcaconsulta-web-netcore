@@ -8,6 +8,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Views\Paciente\Cadastrar.old" />
+    <None Remove="Views\Profissional\Cadastrar.old" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Views\Paciente\Cadastrar.old" />
+    <Content Include="Views\Profissional\Cadastrar.old" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\2) marcaconsulta-web-dotnet-service\marcaconsulta-web-dotnet-service.csproj" />
     <ProjectReference Include="..\3) marcaconsulta-web-dotnet-domain\marcaconsulta-web-dotnet-domain.csproj" />
     <ProjectReference Include="..\4) marcaconsulta-web-dotnet-infra\marcaconsulta-web-dotnet-infra.csproj" />

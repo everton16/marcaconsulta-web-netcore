@@ -7,65 +7,53 @@
 
 
 <html>
-    <h1>@ViewData["Title"]</h1>
+    <h1 align="center">@ViewData["Title"]</h1>
 
-    <br><br>
+    <br>
 
-    <div>
-
-        <form asp-controller="Paciente" asp-action="Cadastrar" method="post">
-            <input type="hidden" asp-for="Id"/>
-            <table>
+    <form asp-controller="Paciente" asp-action="Cadastrar" method="post">
+        <input type="hidden" asp-for="Id"/>
             
-                <tr>
-                    <td style="text-align: right;"><label>Nome:</label></td>
-                    <td><input type="text" asp-for="Nome"/></td>
-                </tr>
-                
-                <tr>
-                    <td style="text-align: right;"><label>CPF:</label></td>
-                    <td><input type="text" asp-for="Cpf"/></td>
-                </tr>
-                
-                <tr>
-                    <td style="text-align: right;"><label>Telefone:</label></td>
-                    <td><input type="text" name="telefone" id="telefone" asp-for="Telefone" placeholder="(__) _____-____"  maxlength="15"/></td>
-                </tr>
-                
-                <tr>
-                    <td style="text-align: right;"><label>Endereço:</label></td>
-                    <td><input type="text" asp-for="Endereco"/></td>
-                </tr>
+        <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input type="text" class="form-control" placeholder="Digite o nome do paciente" asp-for="Nome"/>
+        </div>
 
-                <tr>
-                    <td style="text-align: right;"><label>Bairro:</label></td>
-                    <td><input type="text" asp-for="Bairro"/></td>
-                <tr>
-                
-                <tr>    
-                    <td style="text-align: right;"><label>Cidade:</label></td>
-                    <td><input type="text" asp-for="CidadeId"/></td>
-                </tr>
-                
-            </table> 
-         
-            <br><br><br>
-            <button type="submit" class="btn btn-block btn-success">Registrar</button>
-            <button type="button" class="btn btn-block btn-primary" onclick="Voltar()">Voltar</button>
+        <div class="form-group">
+            <label for="cpf">CPF:</label>
+            <input type="text" class="form-control" placeholder="Digite o CPF do paciente" asp-for="Cpf" />
+        </div>
+
+        <div class="form-group">
+            <label for="telefone">Telefone:</label>
+            <input type="text" class="form-control" name="telefone" id="telefone" asp-for="Telefone" placeholder="(__) _____-____" maxlength="15" />
+        </div>
+
+        <div class="form-group">
+            <label for="endereco">Endereço:</label>
+            <input type="text" class="form-control" placeholder="Digite o endereço do paciente" asp-for="Endereco" />
+        </div>
+
+        <div class="form-group">
+            <label for="bairro">Bairro:</label>
+            <input type="text" class="form-control" placeholder="Digite o bairo do paciente" asp-for="Bairro" />
+        </div>
+
+        <div class="form-group">
+            <label for="cidade">Cidade:</label></td>
+            <input type="text" class="form-control" placeholder="Digite a cidade do paciente" asp-for="CidadeId" />
+        </div>
+
+        <br>
+        <button type="submit" class="btn btn-primary btn-block btn-success">Registrar</button>
+        <a class="btn btn-secondary" asp-controller="Paciente" asp-action="Index" role="button">Voltar</a>
         
-        </form>
+    </form>
 
-    </div>
 
 </html>
 
 <script type="text/javascript" language="javascript">
-
-    function Voltar(){
-
-        window.location.href = "../Index";
-
-    }
 
     function mascara(o,f){
         v_obj=o

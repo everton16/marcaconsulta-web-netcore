@@ -5,75 +5,58 @@
 
 }
 
-
-<style>
-
-
-
-</style>
 <html>
-    <h1>@ViewData["Title"]</h1>
+    <h1 align="center">@ViewData["Title"]</h1>
     
-    <br><br>
-    
-    <div>
 
-        <form asp-controller="Profissional" asp-action="Cadastrar" method="post">
+    
+       <form asp-controller="Profissional" asp-acti on="Cadastrar" method="post">
             <input type="hidden" asp-for="Id"/>
 
-                <table>
-                    <tr>
-                        <td style="text-align: right;"><label>Nome:</label></td>
-                        <td><input type="text" asp-for="Nome"/></td>
-                    </tr>
+            <div 
+                <label for="nome">Nome:</label>
+                <input type="text" class="form-control" placeholder="Digite o nome do profissional" asp-for="Nome"/>
+            </div>
+                        
+            <div>
+                <label for="cpf">CPF:</label>
+                <input type="text" class="form-control" placeholder="Digite o CPF do profissional" asp-for="Cpf" />
+            </div>
+                        
+            <div>
+                <label for="telefone">Telefone:</label>
+                <input type="text" class="form-control" id="telefone" name="telefone" asp-for="Telefone" placeholder="(__) _____-____" maxlength="15" />
+            </div>
+                        
+            <div>
+                <label for="endereco">Endereço:</label>
+                <input type="text" class="form-control" placeholder="Digite o endereço do profissional" asp-for="Endereco" />
+            </div>
+                        
+            <div>
+                <label for="bairro">Bairro:</label>
+                <input type="text" class="form-control" placeholder="Digite o bairro do profissional" asp-for="Bairro" />
+            </div>
 
-                    <tr>
-                        <td style="text-align: right;"><label>CPF:</label></td>
-                        <td><input type="text" asp-for="Cpf"/></td>
-                    </tr>
-
-                    <tr>
-                        <td style="text-align: right;"><label>Telefone:</label></td>
-                        <td><input type="text" id="telefone" name="telefone" asp-for="Telefone" placeholder="(__) _____-____"  maxlength="15"/></td>
-                    </tr>
-
-                    <tr>
-                        <td style="text-align: right;"><label>Endereço:</label></td>
-                        <td><input type="text" asp-for="Endereco"/></td>
-                    </tr>
-
-                    <tr>
-                        <td style="text-align: right;"><label>Bairro:</label></td>
-                        <td><input type="text" asp-for="Bairro"/></td>
-                    </tr>
-
-                    <tr>
-                        <td style="text-align: right;"><label>Cidade:</label></td>
-                        <td><input type="text" asp-for="CidadeId"/></td>
-                    </tr>
+            <div>
+                <label for="cidade">Cidade:</label>
+                <input type="text" class="form-control" placeholder="Digite a cidade do profissional" asp-for="CidadeId" />
+            </div>
                     
-                    <tr>
-                        <td style="text-align: right;"><label>Especialidade:</label><br></td>
-                        <td>@Html.DropDownListFor(m => m.EspecialidadeId, Model.ListaEspecialidades, new { @class="form-select"})</td>
-                    </tr>
+            <div>
+                <label for="especialidade">Especialidade:</label>
+                @Html.DropDownListFor(m => m.EspecialidadeId, Model.ListaEspecialidades, new { @class="form-select"})
+            </div>
+                            
+            <br>
+            <button type="submit" class="btn btn-primary btn-block btn-success">Registrar</button>
+            <a class="btn btn-secondary" asp-controller="Profissional" asp-action="Index" role="button">Voltar</a>
 
-                </table>
-                
-                    <br><br><br>
-                    <button type="submit" class="btn btn-block btn-success">Registrar</button>
-                    <button type="button" class="btn btn-block btn-primary" onclick="Voltar()">Voltar</button>
         </form>
-    </div>
-    
+        
 </html>
 
 <script type="text/javascript" language="javascript">
-
-    function Voltar(){
-
-        window.location.href = "../Index";
-
-    }
 
         function mascara(o,f){
         v_obj=o
