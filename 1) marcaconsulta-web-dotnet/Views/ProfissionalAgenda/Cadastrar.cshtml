@@ -1,44 +1,45 @@
 @model marcaconsulta_web_netcore.Models.ProfissionalAgendaModel;
 
 @{
-    ViewData["Title"] = "Agenda Profissional";
+    ViewData["Title"] = "Cadastrar Agenda Profissional";
 
 }
 
 <html>
     
-    <h1>@ViewData["Title"]</h1>
+    <h1 align="center">@ViewData["Title"]</h1>
     
     <br><br>
     
-    <div>
+    <form asp-controller="ProfissionalAgenda" asp-action="Cadastrar" method="post">
+        <input type="hidden" asp-for="Id"/>
 
-        <form asp-controller="ProfissionalAgenda" asp-action="Cadastrar" method="post">
-            <input type="hidden" asp-for="Id"/>
-                <table>
-                    <tr>
-                        <td><label>Profissional:</label></td>
-                        <td><input type="text" asp-for="ProfissionalId"/></td>
-                    </tr>
-                    <tr>
-                        <td><label>Data:</label></td>
-                        <td><input type="date" asp-for="Data"/></td>
-                    </tr>
-                    <tr>
-                        <td><label>Hora Início:</label></td>
-                        <td><input type="time" asp-for="HoraInicio"/></td>
-                    </tr>
-                    <tr>
-                        <td><label>Hora Fim:</label></td>
-                        <td><input type="time" asp-for="HoraFim"/></td>
-                    </tr>
-       
-                </table>
-                
-                <br><br><br>    
-                <button type="submit" class="btn btn-block btn-success">Registrar</button>
-                <button type="button" class="btn btn-block btn-primary" onclick="Voltar()">Voltar</button>
-        </form>
+        <div>
+            <label for="profissional">Profissional:</label>
+            <input type="text" class="form-control"asp-for="ProfissionalId"/>
+        </div>
+
+        <div>
+            <label for="data">Data:</label>
+            <input type="date" class="form-control" asp-for="Data"/>
+        </div>
+
+        <div>
+            <label for="horainicio">Hora Início:</label>
+            <input type="time" class="form-control" asp-for="HoraInicio"/>
+        </div>
+
+        <div>
+            <label for="horafim">Hora Fim:</label>
+            <input type="time" class="form-control" asp-for="HoraFim"/>
+        </div>
+            
+        <br><br><br>    
+        
+        <button type="submit" class="btn btn-primary btn-block btn-success">Registrar</button>
+        <a class="btn btn-secondary" asp-controller="ProfissionalAgenda" asp-action="Index" role="button">Voltar</a>
+
+    </form>
 
 
     </div>

@@ -7,45 +7,40 @@
 
 <html>
 
-<h1>@ViewData["Title"]</h1>
+<h1 align="center">@ViewData["Title"]</h1>
 
     <br><br>
 
-    <div>
+    
 
-        <form asp-controller="Agendamento" asp-action="Cadastrar" method="post">
-            <input type="hidden" asp-for="Id"/>
-            <table>
-            
-                <tr>
-                    <td><label>Paciente:</label></td>
-                    <td><input type="text" asp-for="PacienteId"/></td>
-                </tr>
-                
-                <tr>
-                    <td><label>Profissional:</label></td>
-                    <td><input type="text" id="Profissional"/></td>
-                    
-                </tr>
+    <form asp-controller="Agendamento" asp-action="Cadastrar" method="post">
+
+        <input type="hidden" asp-for="Id"/>
 
 
-                <tr>
-                    <td><label>Agenda:</label></td>
-                    <td>@Html.DropDownListFor(m => m.ProfissionalAgendaId, Model.ListaProfissionalAgendas, new { @class="form-select"})</td>
-                </tr>
-                
-                </tr>
+        <div class="form-group">
+            <label for="paciente">Paciente:</label>
+            <input type="text" class="form-control" asp-for="PacienteId"/>
+        </div>
 
-        </table> 
+        <div class="form-group">
+            <label for="profissional">Profissional:</label>
+            <input type="text" class="form-control" id="Profissional"/>
+        </div>
         
-            <br><br><br>
-        
-            <button type="submit" class="btn btn-block btn-success">Registrar</button>
-            <button type="button" class="btn btn-block btn-primary" onclick="Voltar()">Voltar</button>
+        <div class="form-group">
+            <label for="agenda">Agenda:</label>
+            @Html.DropDownListFor(m => m.ProfissionalAgendaId, Model.ListaProfissionalAgendas, new { @class="form-select"})
+        </div>
 
-        </form>
+    
+        <br><br>
+    
+        <button type="submit" class="btn btn-primary btn-block btn-success">Registrar</button>
+        <a class="btn btn-secondary" asp-controller="Agendamento" asp-action="Index" role="button">Voltar</a>
 
-    </div>
+    </form>
+
     
         
 </html>
