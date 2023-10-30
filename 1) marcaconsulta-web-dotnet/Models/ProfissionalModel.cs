@@ -13,11 +13,11 @@ namespace marcaconsulta_web_netcore.Models
         public string? Endereco {get;set;}
         public string? Bairro {get;set;}
         public int? CidadeId {get;set;}
-        //public int? UfId {get;set;}
         public int? EspecialidadeId {get;set;}
-
-        public string? ProfissionalCidadeNome {get;set;}
-        public string? ProfissionalEstadoNome {get;set;}
+        
+        public string? CidadeNome {get;set;}
+        public string? EstadoNome {get;set;}
+        public string? EspecialidadeNome {get;set;}
 
         public Profissional? Profissional {get;set;}
         

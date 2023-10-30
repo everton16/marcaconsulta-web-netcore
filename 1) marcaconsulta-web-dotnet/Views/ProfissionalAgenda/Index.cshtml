@@ -3,6 +3,15 @@
 
 }
 
+<style>
+
+    th {
+            text-align: center;
+
+    }
+
+</style>
+
 <h1 align="center">@ViewData["Title"]</h1>
 
 <button type="button" class="btn btn-block btn-primary" onclick="Novo()">Novo</button>
@@ -26,9 +35,9 @@
         {
             <tr>
                 <td>@item.ProfissionalNome</td>
-                <td>@item.Data</td>
-                <td>@item.HoraInicio</td>
-                <td>@item.HoraFim</td>
+                <td align="center">@item.Data</td>
+                <td align="center">@item.HoraInicio</td>
+                <td align="center">@item.HoraFim</td>
                 
                 <td align="center"><button type="button" class="btn btn-block btn-outline-warning" onclick = "Atualizar(@item.Id.ToString())">Editar</button></td>
                 <td align="center"><button type="button" class="btn btn-block btn-outline-danger" onclick = "Excluir(@item.Id.ToString())">Excluir</button></td>
