@@ -2,6 +2,7 @@
 using marcaconsulta_web_dotnet_domain.Entities;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
+
 namespace marcaconsulta_web_netcore.Models
 {
     public class ProfissionalModel

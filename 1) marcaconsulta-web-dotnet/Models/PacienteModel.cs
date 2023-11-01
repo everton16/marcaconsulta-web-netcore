@@ -1,6 +1,7 @@
 
 using marcaconsulta_web_dotnet_domain.Entities;
 
+
 namespace marcaconsulta_web_netcore.Models
 {
     public class PacienteModel

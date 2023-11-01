@@ -8,42 +8,40 @@
 <html>
     <h1 align="center">@ViewData["Title"]</h1>
     
-
-    
-       <form asp-controller="Profissional" asp-action="Cadastrar" method="post">
+        <form asp-controller="Profissional" asp-action="Cadastrar" method="post">
             <input type="hidden" asp-for="Id"/>
 
-            <div 
+            <div class="form-group"> 
                 <label for="nome">Nome:</label>
                 <input type="text" class="form-control" placeholder="Digite o nome do profissional" asp-for="Nome"/>
             </div>
                         
-            <div>
+            <div class="form-group">
                 <label for="cpf">CPF:</label>
                 <input type="text" class="form-control" placeholder="Digite o CPF do profissional" asp-for="Cpf" />
             </div>
                         
-            <div>
+            <div class="form-group">
                 <label for="telefone">Telefone:</label>
                 <input type="text" class="form-control" id="telefone" name="telefone" asp-for="Telefone" placeholder="(__) _____-____" maxlength="15" />
             </div>
                         
-            <div>
+            <div class="form-group">
                 <label for="endereco">Endereço:</label>
                 <input type="text" class="form-control" placeholder="Digite o endereço do profissional" asp-for="Endereco" />
             </div>
                         
-            <div>
+            <div class="form-group">
                 <label for="bairro">Bairro:</label>
                 <input type="text" class="form-control" placeholder="Digite o bairro do profissional" asp-for="Bairro" />
             </div>
 
-            <div>
+            <div class="form-group">
                 <label for="cidade">Cidade:</label>
                 <input type="text" class="form-control" placeholder="Digite a cidade do profissional" asp-for="CidadeId" />
             </div>
                     
-            <div>
+            <div class="form-group">
                 <label for="especialidade">Especialidade:</label>
                 @Html.DropDownListFor(m => m.EspecialidadeId, Model.ListaEspecialidades, new { @class="form-select"})
             </div>
@@ -59,7 +57,7 @@
 
 <script type="text/javascript" language="javascript">
 
-        function mascara(o,f){
+    function mascara(o,f){
         v_obj=o
         v_fun=f
         setTimeout("execmascara()",1)
@@ -83,7 +81,7 @@
     window.onload = function(){
         id('telefone').onkeyup = function(){
             mascara( this, mtel );
-    }
-
+        }
+}
 
 </script>
